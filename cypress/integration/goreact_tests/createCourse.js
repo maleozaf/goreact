@@ -1,31 +1,30 @@
 describe('Course Creation', function (){
-    beforeEach(() => {
-        cy.visit('https://dev.goreact.com/')
-    })
 
     it('Able to create a course successfully', function () {
+        cy.visit('https://dev.goreact.com/')
         cy.get('[data-cy=login-email-field]')
-            .type('jhondoe6@gmail.com')
+            .type('jhondoe11@gmail.com')
         cy.get('[data-cy=login-password-field]')
             .type('12345Abc@')
         cy.xpath('//span[text()="Log In"]').click()
-        cy.wait(5000)
+        cy.wait(10000)
 
         cy.xpath('//span[text()="Courses"]').click()
         cy.xpath('//span[text()="Create Course"]').click()
         cy.xpath('//span[text()="Course name"]/following::input[1]')
             .type('Driving 101')
         cy.get('[aria-label="Create Course"').click()
-        cy.wait(5000)
+        cy.wait(7000)
+        cy.xpath('//button[text()="Close"]').click()
         cy.xpath('//span[text()="Courses"]').click()
         cy.xpath('//div[text()="Driving 101"]')
             .should('be.visible')
     })
 
-    it.only('Create Invitation Link', function () {
+    it('Provide Invitation Link', function () {
         cy.visit('https://dev.goreact.com/')
         cy.get('[data-cy=login-email-field]')
-            .type('jhondoe6@gmail.com')
+            .type('jhondoe11@gmail.com')
         cy.get('[data-cy=login-password-field]')
             .type('12345Abc@')
         cy.xpath('//span[text()="Log In"]').click()
