@@ -16,7 +16,7 @@ git clone https://github.com/maleozaf/goreact.git
 notes:
 1. please use the main branch when executing the test
 2. this is my first time using cypress so i didnt use page object model or any framework that will help to organize the test scripts. But when I have enough time, I will slowly proceed with POM
-3. i have created the test files and this is the sequence:
+3. i have created the test files and this is the sequence, accessibility testing is already included:
 intructor_signup.js
 instructor_login.js
 createCourse.js
