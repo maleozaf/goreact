@@ -1,44 +1,31 @@
 const { should } = require("chai")
 
 describe('Sign Up for Instructor', function (){
-    it('Successful Account Creation for Instructor', function () {
-        cy.visit('https://dev.goreact.com/')
-        cy.get('[data-cy=create-account]')
-            .should('have.attr', 'data-cy', 'create-account')
-        cy.get('[data-cy=create-account]').click()
-        cy.get('[data-cy=ins-sign-up-button]').click()
-        
-        //account set up form
-        cy.get('[data-cy=signup-form-firstname]')
-            .type('Jhon')
-        cy.get('[data-cy=signup-form-lastname]')
-            .type('Doe')
-        cy.get('[data-cy=signup-form-phone]')
-            .type('09123456789')
-        cy.get('[data-cy=signup-form-email]')
-            .type('jhondoe11@gmail.com')
-        cy.get('[data-cy=signup-form-password]')
-            .type('12345Abc@')
-        cy.get('[data-cy=signup-form-password-confirm]')
-            .type('12345Abc@')
-        cy.get('[data-cy=signup-form-terms-agree]').click()
-        cy.get('[data-cy=signup-form-submit]').click()
-        cy.get('[translate=account-setup_title]')
-            .should('have.attr', 'translate', 'account-setup_title')
+    beforeEach(function () {
+        cy.fixture("test-data/instructor.json").as("instructorData").then((instructorData) => {
+            this.instructorData = instructorData;
+        });
+
+        // cy.fixture("test_data/course.json").as("courseData").then((courseData) => {
+        //     this.courseData = courseData;
+        // });
+
+        // cy.fixture("test_data/student.json").as("studentData").then((studentData) => {
+        //     this.studentData = studentData;
+        // });
+    });
+    it('Account Creation for Instructor', function () {
+        cy.goToLoginPage()
+        cy.euConfirmation()
+        cy.accountCreation(
+            this.instructorData.validCredentials.firstName,
+            this.instructorData.validCredentials.lastName,
+            this.instructorData.validCredentials.phoneNumber,
+            this.instructorData.validCredentials.email,
+            this.instructorData.validCredentials.password,
+            this.instructorData.validCredentials.confirmPassword
+        )
+        cy.fillingAccountSetup()
     })
 
-    it('Successful Account Setup for Instructor', function (){
-        cy.get('[name=org_type]').click()
-        cy.xpath('//span[text()="Personal Use"]').click()
-        cy.wait(2000)
-        cy.get('[name=use_type]').click()
-        cy.xpath('//span[text()="Interviewing"]').click()
-        cy.wait(2000)
-        cy.get('[name=course_format]').click()
-        cy.xpath('//span[text()="Online"]').click()
-        cy.wait(2000)
-        cy.get('[data-cy=acct-setup-submit]').click()
-        cy.wait(10000)
-        cy.xpath('//span[text()="Welcome to GoReact!"]').should('be.visible')
-    })
 })

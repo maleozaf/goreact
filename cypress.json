@@ -1,1 +1,23 @@
-{}
+{
+    "env": {
+      "devgoreact": "https://dev.goreact.com",
+      "prodgoreact": "https://app.goreact.com",
+      "devlti": "https://dev.goreact.com/lti",
+      "prodlti": "https://lti.goreact.com/lti/v1",
+      "devadmintool": "https://dev-admin.goreact.com",
+      "prodadmintool": "https://admin.goreact.com"
+
+    },
+    
+    "email": {
+      "instructor": ""
+    },
+    
+    "testFiles": [
+      "**/*.js"
+    ],
+  
+    "retries": {
+        "runMode": 1
+    }
+}

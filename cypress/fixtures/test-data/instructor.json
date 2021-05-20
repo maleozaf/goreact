@@ -1,0 +1,19 @@
+{
+    "validCredentials": {
+        "firstName": "instructor",
+        "lastName": "Dev",
+        "phoneNumber": "09100000000",
+        "email": "rjqahubbub+instructorDev29@gmail.com",
+        "password": "Password123!",
+        "confirmPassword": "Password123!"
+    },
+
+    "invalidCredentials": {
+        "firstName": " ",
+        "lastName": " ",
+        "phoneNumber": "09100000000",
+        "email": " ",
+        "password": "Password123!",
+        "confirmPassword": "Password"
+    }
+}

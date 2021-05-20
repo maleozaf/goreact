@@ -1,5 +1,5 @@
 {
-  "name": "goreact",
+  "name": "goreactsmoketesting",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,8 +10,9 @@
   "license": "ISC",
   "devDependencies": {
     "clipboardy": "^2.3.0",
-    "cypress": "^7.0.1",
-    "cypress-xpath": "^1.6.2"
+    "cypress": "^7.2.0",
+    "cypress-xpath": "^1.6.2",
+    "faker": "^5.5.3"
   },
   "dependencies": {
     "chai": "^4.3.4"
